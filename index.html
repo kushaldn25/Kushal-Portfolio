@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Kushal Debnath</title>
+
+    <meta name="description"
+        content="The portfolio of Kushal Debnath, an AI/ML researcher and creative developer passionate about building intelligent systems.">
+    <meta property="og:title" content="Portfolio | Kushal Debnath">
+    <meta property="og:description"
+        content="An AI/ML researcher and creative developer passionate about building intelligent systems.">
+    <meta property="og:image" content="https://your-domain.com/social-preview.png">
+    <meta property="og:url" content="https://your-domain.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +21,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="">
+<body>
 
     <header class="fixed top-0 left-0 right-0 z-50 p-4">
         <div
@@ -56,14 +64,37 @@
                         </div>
                     </div>
                 </label>
+
+                <button id="menu-btn" class="md:hidden text-slate-600 dark:text-slate-300"
+                    aria-label="Open main menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden container mx-auto max-w-5xl mt-2 rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg">
+            <nav class="flex flex-col items-center space-y-4 py-6">
+                <a href="#about" class="nav-link text-slate-600 hover:text-slate-900 transition-colors">About</a>
+                <a href="#skills" class="nav-link text-slate-600 hover:text-slate-900 transition-colors">Skills</a>
+                <a href="#experiences"
+                    class="nav-link text-slate-600 hover:text-slate-900 transition-colors">Experience</a>
+                <a href="#projects" class="nav-link text-slate-600 hover:text-slate-900 transition-colors">Projects</a>
+                <a href="#contact" class="nav-link text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
+            </nav>
+        </div>
     </header>
+
 
     <main class="pt-32">
         <section id="home"
             class="min-h-[90vh] container mx-auto px-6 flex flex-col md:flex-row items-center justify-center">
-            <div class="md:w-3/5 text-center md:text-left md:ml-12">
+            <div class="md:w-1/2 text-center md:text-left md:ml-12 scroll-animate">
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-4">
                     <span class="heading-gray block text-4xl md:text-5xl font-semibold">I'm</span>
                     <span class="main-heading block">Kushal Debnath</span>
@@ -76,7 +107,8 @@
                 </p>
                 <div
                     class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="btn-dark font-semibold py-4 px-8 rounded-2xl">Download My CV</button>
+                    <a href="src/Kushal Debnath-updated.pdf" download="Kushal_Debnath_CV.pdf"
+                        class="btn-dark font-semibold py-4 px-8 rounded-2xl">Download My CV</a>
                     <a href="#contact"
                         class="btn-light font-semibold py-4 px-8 rounded-2xl flex items-center justify-center space-x-2">
                         <span>Contact Me</span>
@@ -88,21 +120,20 @@
                     </a>
                 </div>
             </div>
-            <div class="md:w-2/5 flex justify-center mt-12 md:mt-0">
-                <img src="https://i.imgur.com/8b24TfC.png" alt="Illustration of a developer"
-                    class="w-72 h-72 md:w-96 md:h-96"
-                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/FFFFFF/000000?text=🧑‍💻&font=emoji';">
+            <div class="md:w-1/2 flex justify-center mt-12 md:mt-0 scroll-animate">
+                <img src="src/portfolio-hero.png" alt="A photo of Kushal Debnath" class="hero-image w-full max-w-sm md:max-w-lg">
             </div>
         </section>
 
         <section id="about" class="py-24 container mx-auto px-6 flex items-center justify-center">
-            <div class="max-w-4xl w-full">
+            <div class="max-w-4xl w-full scroll-animate">
                 <h2 class="text-4xl md:text-5xl font-bold mb-2 main-heading inline-block">About Me</h2>
                 <p class="text-lg heading-gray mb-12 uppercase tracking-widest">My Motivation & Mission</p>
                 <div class="space-y-10 text-lg">
                     <div>
                         <h3 class="font-bold text-xl mb-3 text-slate-800 dark:text-slate-200">Who I Am</h3>
-                        <p>Can machines learn to heal, predict, and even think ahead of time? That’s the kind of
+                        <p class="text-justify">Can machines learn to heal, predict, and even think ahead of time? That’s
+                            the kind of
                             question that drives me every day. I’m Kushal Debnath — an AI/ML researcher, creative
                             developer, and systems thinker passionate about building intelligent systems that don’t just
                             function, but truly understand, adapt, and create impact.
@@ -116,7 +147,8 @@
                     </div>
                     <div>
                         <h3 class="font-bold text-xl mb-3 text-slate-800 dark:text-slate-200">What I Do</h3>
-                        <p>My work sits at the intersection of machine learning, systems engineering, and creative
+                        <p class="text-justify">My work sits at the intersection of machine learning, systems
+                            engineering, and creative
                             development. On one side, I design and train machine learning models that push the
                             boundaries of what’s possible in domains like healthcare, computer vision, and predictive
                             analytics. At the same time, I dive deep into MLOps and systems design, building
@@ -139,12 +171,12 @@
         </section>
 
         <section id="skills" class="py-24 container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 scroll-animate">
                 <h2 class="text-4xl md:text-5xl font-bold mb-2 main-heading inline-block">My Skills</h2>
                 <p class="text-lg heading-gray uppercase tracking-widest">A Showcase of My Abilities</p>
             </div>
 
-            <div id="skill-filters" class="flex flex-wrap justify-center gap-4 mb-12">
+            <div id="skill-filters" class="flex flex-wrap justify-center gap-4 mb-12 scroll-animate">
                 <button class="filter-btn active" data-category="languages">Languages</button>
                 <button class="filter-btn" data-category="databases">Databases</button>
                 <button class="filter-btn" data-category="ml">ML</button>
@@ -154,9 +186,8 @@
                 <button class="filter-btn" data-category="all">All</button>
             </div>
 
-            <div id="skill-cards-container" class="relative max-w-4xl mx-auto min-h-[300px]">
+            <div id="skill-cards-container" class="relative max-w-4xl mx-auto min-h-[300px] scroll-animate">
 
-                <!-- Languages Card -->
                 <div class="skill-card skills-card-floating active" data-category="languages">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-6">
@@ -186,7 +217,6 @@
                     </div>
                 </div>
 
-                <!-- Databases Card -->
                 <div class="skill-card skills-card-floating" data-category="databases">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-6">
@@ -221,7 +251,6 @@
                     </div>
                 </div>
 
-                <!-- ML Card -->
                 <div class="skill-card skills-card-floating" data-category="ml">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-6">
@@ -251,7 +280,6 @@
                     </div>
                 </div>
 
-                <!-- MLOps Card -->
                 <div class="skill-card skills-card-floating" data-category="mlops">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-6">
@@ -281,7 +309,6 @@
                     </div>
                 </div>
 
-                <!-- Webdev Card -->
                 <div class="skill-card skills-card-floating" data-category="webdev">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="space-y-6">
@@ -311,7 +338,6 @@
                     </div>
                 </div>
 
-                <!-- Softskill Card -->
                 <div class="skill-card skills-card-floating" data-category="softskill">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="hidden md:flex justify-center items-center"><span class="skills-label-large">SOFT
@@ -341,7 +367,6 @@
                     </div>
                 </div>
 
-                <!-- All Skills Card -->
                 <div class="skill-card skills-card-floating" data-category="all">
                     <div class="flex flex-wrap justify-center gap-4">
                         <span class="tool-pill">Python</span><span class="tool-pill">Java</span><span
@@ -361,20 +386,20 @@
         </section>
 
         <section id="experiences" class="py-24 container mx-auto px-6">
-            <div class="text-center mb-20">
+            <div class="text-center mb-20 scroll-animate">
                 <h2 class="text-4xl md:text-5xl font-bold main-heading">My Experience</h2>
                 <p class="text-lg heading-gray mt-2 uppercase tracking-widest">A Journey of Growth</p>
             </div>
 
-            <div class="relative max-w-5xl mx-auto">
+            <div class="relative max-w-5xl mx-auto pt-16">
                 <div class="timeline-line"></div>
 
                 <div class="timeline-year-marker" style="top: 0%;">2022</div>
-                <div class="timeline-year-marker" style="top: 20%;">2023</div>
+                <div class="timeline-year-marker" style="top: 32%;">2023</div>
                 <div class="timeline-year-marker" style="top: 60%;">2024</div>
-                <div class="timeline-year-marker" style="top: 95%;">2025</div>
+                <div class="timeline-year-marker" style="top: 90%;">2025</div>
 
-                <div class="timeline-item timeline-item-left">
+                <div class="timeline-item timeline-item-left timeline-item--education scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2022</div>
@@ -385,7 +410,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-right">
+                <div class="timeline-item timeline-item-right timeline-item--education scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">2022 - Present</div>
@@ -396,7 +421,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-left">
+                <div class="timeline-item timeline-item-left timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">Dec 2022 - Feb 2023</div>
@@ -407,7 +432,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-right">
+                <div class="timeline-item timeline-item-right timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">Jan 2023 - Present</div>
@@ -418,7 +443,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-left">
+                <div class="timeline-item timeline-item-left timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">May 2023 - Jun 2023</div>
@@ -429,7 +454,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-right">
+                <div class="timeline-item timeline-item-right timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">Jun 2023 - Sep 2023</div>
@@ -440,7 +465,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-left">
+                <div class="timeline-item timeline-item-left timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">Jun 2023 - Oct 2023</div>
@@ -451,7 +476,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-right">
+                <div class="timeline-item timeline-item-right timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">May 2024 - Jul 2024</div>
@@ -461,7 +486,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-left">
+                <div class="timeline-item timeline-item-left timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">May 2024 - Jul 2024</div>
@@ -472,7 +497,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-right">
+                <div class="timeline-item timeline-item-right timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">May 2024 - Jan 2025</div>
@@ -482,7 +507,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item timeline-item-left">
+                <div class="timeline-item timeline-item-left timeline-item--experience scroll-animate">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">May 2025 - Jul 2025</div>
@@ -496,7 +521,7 @@
         </section>
 
         <section id="projects" class="py-24 container mx-auto px-6">
-            <div class="text-center mb-20">
+            <div class="text-center mb-20 scroll-animate">
                 <h2 class="text-4xl md:text-5xl font-bold main-heading">My Projects</h2>
                 <p class="text-lg heading-gray mt-2 uppercase tracking-widest">Creations I'm Proud Of</p>
             </div>
@@ -504,7 +529,7 @@
             <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-                    <div class="project-card">
+                    <div class="project-card scroll-animate">
                         <div class="relative">
                             <img src="https://placehold.co/600x400/D9CEFF/0f172a?text=Edge+Computing"
                                 class="w-full h-48 object-cover" alt="MLOps Pipeline Project">
@@ -536,7 +561,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card scroll-animate">
                         <div class="relative">
                             <img src="https://placehold.co/600x400/F6D1B8/0f172a?text=Medical+AI"
                                 class="w-full h-48 object-cover" alt="Brain Tumor Detection Project">
@@ -568,7 +593,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card scroll-animate">
                         <div class="relative">
                             <img src="https://placehold.co/600x400/D9CEFF/0f172a?text=Neural+Network"
                                 class="w-full h-48 object-cover" alt="Alzheimer's AI Project">
@@ -600,7 +625,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card scroll-animate">
                         <div class="relative">
                             <img src="https://placehold.co/600x400/F6D1B8/0f172a?text=Industrial+AI"
                                 class="w-full h-48 object-cover" alt="Predictive Maintenance Project">
@@ -630,7 +655,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card scroll-animate">
                         <div class="relative">
                             <img src="https://placehold.co/600x400/e2e8f0/94a3b8?text=Coming+Soon"
                                 class="w-full h-48 object-cover" alt="Coming Soon">
@@ -641,7 +666,7 @@
                                 details!</p>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card scroll-animate">
                         <div class="relative">
                             <img src="https://placehold.co/600x400/e2e8f0/94a3b8?text=Coming+Soon"
                                 class="w-full h-48 object-cover" alt="Coming Soon">
@@ -658,11 +683,11 @@
         </section>
 
         <section id="contact" class="py-24 container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 scroll-animate">
                 <h2 class="text-4xl md:text-5xl font-bold mb-2 contact-heading">Contact Me</h2>
                 <p class="text-lg heading-gray uppercase tracking-widest">Get In Touch</p>
             </div>
-            <div class="skills-card-floating rounded-3xl p-8 md:p-12 w-full max-w-6xl mx-auto">
+            <div class="skills-card-floating rounded-3xl p-8 md:p-12 w-full max-w-6xl mx-auto scroll-animate">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
                     <div class="space-y-8">
                         <h3 class="text-3xl font-bold main-heading">Get in Touch</h3>
@@ -702,7 +727,7 @@
                                 <div class="contact-info-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20"
                                         height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 0 0 1 18 0z"></path>
                                         <circle cx="12" cy="10" r="3"></circle>
                                     </svg></div>
                                 <div>
@@ -712,17 +737,33 @@
                             </div>
                         </div>
                     </div>
-                    <form class="space-y-6"><input type="text" placeholder="Your Name" class="form-input"
-                            required><input type="email" placeholder="Your Email" class="form-input" required><input
-                            type="text" placeholder="Subject" class="form-input" required><textarea
-                            placeholder="Your Message" rows="6" class="form-input" required></textarea><button
-                            type="submit" class="btn-submit"><span>Send Message</span><svg
-                                xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    <form action="https://formspree.io/f/your_unique_id" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="sr-only">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="sr-only">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="6" class="form-input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <span>Send Message</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
                                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg></button></form>
+                            </svg>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Scrollspy functionality
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // Theme toggle functionality
     const themeSwitch = document.getElementById('theme-switch');
     const doc = document.documentElement;
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', 'light');
     }
 
-    themeSwitch.addEventListener('change', function() {
+    themeSwitch.addEventListener('change', function () {
         if (this.checked) {
             doc.classList.add('dark');
             localStorage.setItem('theme', 'dark');
@@ -100,7 +100,40 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(type, 500);
         }
     }
-    
-    type();
-});
 
+    type();
+
+    // Scroll Animation Observer
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Triggers when 10% of the element is visible
+    });
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    // === NEW: Mobile Menu Functionality ===
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = mobileMenu.querySelectorAll('a.nav-link');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+});

@@ -14,6 +14,7 @@ body {
     background-color: #f8fafc; /* Slate 50 */
     color: var(--color-muted-text);
     position: relative;
+    overflow-x: hidden;
     transition: background-color 0.5s ease; /* Smooth background transition */
 }
 
@@ -63,6 +64,40 @@ HERO SECTION
     color: var(--color-dark-heading);
     letter-spacing: -0.04em;
 }
+
+/* === NEW HERO IMAGE STYLES === */
+.hero-image {
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+    animation: hero-float 6s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* === NEW GLOW ANIMATION === */
+@keyframes hero-glow {
+    0%, 100% {
+        filter: drop-shadow(0px 0px 20px var(--color-lavender)) 
+                drop-shadow(0px 0px 35px var(--color-peach)) 
+                drop-shadow(0 25px 25px rgba(0, 0, 0, 0.35));
+    }
+    50% {
+        filter: drop-shadow(0px 0px 30px var(--color-peach)) 
+                drop-shadow(0px 0px 45px var(--color-lavender)) 
+                drop-shadow(0 25px 25px rgba(0, 0, 0, 0.35));
+    }
+}
+
+
 .typing-text::after {
     content: '|';
     animation: blink 1s step-end infinite;
@@ -202,7 +237,8 @@ EXPERIENCE TIMELINE
 .timeline-item {
     position: relative;
     width: 50%;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+    z-index: 5;
 }
 .timeline-item:last-child {
     margin-bottom: 0;
@@ -226,13 +262,43 @@ EXPERIENCE TIMELINE
     border-radius: 50%;
     z-index: 10;
     transition: all 0.3s ease;
+    /* Added to center the icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b; /* Icon color for light mode */
 }
+
 .timeline-item-left .timeline-dot {
     right: -14px;
 }
 .timeline-item-right .timeline-dot {
     left: -14px;
 }
+
+/* === NEW: TIMELINE ICONS === */
+.timeline-dot::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+.timeline-item--education .timeline-dot::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 10v6M2 10l10-5 10 5-10 5z'%3E%3C/path%3E%3Cpath d='M6 12v5c3.33 1.67 6.67 1.67 10 0v-5'%3E%3C/path%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 10v6M2 10l10-5 10 5-10 5z'%3E%3C/path%3E%3Cpath d='M6 12v5c3.33 1.67 6.67 1.67 10 0v-5'%3E%3C/path%3E%3C/svg%3E");
+}
+.timeline-item--experience .timeline-dot::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='7' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'%3E%3C/path%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='7' width='20' height='14' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'%3E%3C/path%3E%3C/svg%3E");
+}
+/* === END: TIMELINE ICONS === */
+
 .timeline-content {
     position: relative;
     padding: 1.5rem;
@@ -299,7 +365,7 @@ EXPERIENCE TIMELINE
         width: 100%;
         padding-left: 50px;
         padding-right: 0;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
     .timeline-item-left, .timeline-item-right {
         left: 0;
@@ -404,12 +470,22 @@ DARK MODE STYLES
 .dark .nav-link.active { color: #ffffff; }
 .dark .main-heading, .dark .contact-heading { color: #f8fafc; }
 .dark .heading-gray { color: #475569; }
+
+/* === NEW HERO IMAGE DARK MODE STYLE === */
+.dark .hero-image {
+    animation: hero-float 6s ease-in-out infinite, hero-glow 8s ease-in-out infinite;
+}
+
 .dark #about h3 { color: #f1f5f9; }
 .dark .btn-light { background-color: #1e293b; color: #f8fafc; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
 .dark .btn-dark { background-color: #f1f5f9; color: var(--color-dark-heading); box-shadow: 0 10px 20px rgba(241, 245, 249, 0.1), 0 0 40px rgba(217, 206, 255, 0.2); }
 .dark .btn-dark:hover { box-shadow: 0 15px 30px rgba(241, 245, 249, 0.15), 0 0 50px rgba(217, 206, 255, 0.3); }
 .dark .timeline-line { background-color: #334155; }
-.dark .timeline-dot { background-color: #020617; border-color: #475569; }
+.dark .timeline-dot { 
+    background-color: #020617; 
+    border-color: #475569;
+    color: #94a3b8; /* Icon color for dark mode */
+}
 .dark .timeline-item .timeline-content { background-color: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.3); }
 .dark .timeline-item:hover .timeline-content { box-shadow: 0 45px 90px -20px rgba(0,0,0,0.4); }
 .dark .timeline-date { color: #64748b; }
@@ -434,3 +510,18 @@ DARK MODE STYLES
 .dark .form-input::placeholder { color: #64748b; }
 .dark .form-input:focus { background-color: #1e293b; border-color: var(--color-peach); }
 
+
+/* ==========================================
+SCROLL ANIMATION
+==========================================
+*/
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
